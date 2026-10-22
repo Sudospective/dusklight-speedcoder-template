@@ -4,7 +4,7 @@ A header-only CMake template for writing native C++ mods for [Dusklight](https:/
 
 DST wraps the SDK's ABI, never replaces it: services stay plain C underneath, but your code works with scoped enums, typed arguments, RAII helpers, and classes with virtual lifecycle hooks instead of (or alongside) raw C structs and static trampolines.
 
-## What you get
+## Utility Primer
 
 - **`DST::Component`** — the unit of a mod. Derive it in a class, override `OnInit` / `OnUpdate` / `OnShutdown`, and return it from `dst_main()`. Several components can live in one mod.
 - **`DST::Entity`** — a game-world object layered over the engine's actor system via composition (a heap-side C++ object bridged to the engine's actor block), with virtual hooks: `OnCreate`, `OnExecute`, `OnDraw`, `OnDelete`, `OnCreateHeap`, `OnHit`. No need to write per-class static trampolines, as DST provides the engine callbacks. You also have a few callbacks you can use for creating a heap and hit detection (`CreateHeapCallback`, `HitCallback`).
@@ -22,7 +22,7 @@ DST wraps the SDK's ABI, never replaces it: services stay plain C underneath, bu
 - Git (the Dusklight sources are fetched at configure time).
 - Dusklight itself, to run the mod.
 
-## Quick start
+## Quick Start
 
 ```sh
 cmake -B build
@@ -31,7 +31,7 @@ cmake --build build
 
 Copy the resulting `.dusk` from `build/` into your Dusklight `mods/` folder and launch the game.
 
-### Choosing the Dusklight version
+### Choosing the Dusklight Version
 
 The template fetches Dusklight at configure time, pinned by `DUSKLIGHT_VERSION` (default: the latest stable tag):
 
@@ -49,7 +49,7 @@ Note: when `DUSKLIGHT_DIR` points at an existing checkout, the fetch is skipped 
 
 If configure fails with an SSL/certificate error while fetching, CMake can't find a CA bundle on your system; the template auto-detects the common locations (including Git for Windows). You can also point it at one explicitly with `-DCMAKE_TLS_CAINFO=path/to/ca-bundle.crt`.
 
-## Project layout
+## Project Layout
 
 ```
 src/
@@ -66,7 +66,7 @@ include/dst/    <- DST headers for the template itself
 
 IMPORTANT: **don't import ActorService in your own code.** The template's `mod.cpp` owns the one import; a second import in your code is a duplicate-definition link error. The headers give you everything you need.
 
-## A minimal mod with an Entity
+## A Minimal Mod with an Entity
 
 ```cpp
 // src/entities/example.hpp
