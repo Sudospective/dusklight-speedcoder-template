@@ -4,6 +4,9 @@ on:
   push:
     branches: ["*"]
     tags: ["*"]
+  workflow_dispatch:
+    branches: ["*"]
+    tags: ["*"]
   pull_request:
 
 env:
