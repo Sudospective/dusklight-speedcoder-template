@@ -11,5 +11,5 @@
 // return std::make_unique<ClassName>();
 
 std::unique_ptr<DST::Component> dst_main() {
-  return std::make_unique<MineCmp>();
-}
+  return std::make_unique<ExampleComponent>();
+} 

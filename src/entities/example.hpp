@@ -8,7 +8,7 @@ class ExampleEntity : public DST::Entity {
   public:
   int OnCreate() {
     mods::log::info("Example Entity Create");
-    return 1;
+    return 4;
   }
   int IsDelete() {
     mods::log::info("Example Entity IsDelete");

@@ -4,7 +4,7 @@
 
 #include "dst/component.hpp"
 
-#include "../entities/example.hpp"
+#include "entities/example.hpp"
 
 class ExampleComponent : public DST::Component {
   public:
