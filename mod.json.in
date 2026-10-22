@@ -1,7 +1,7 @@
 {
-  "id": "com.example.my_mod",
-  "name": "My Mod",
+  "id": "net.sudospective.dst",
+  "name": "Dusklight Speedcoder Template",
   "version": "@PROJECT_VERSION@",
-  "author": "You",
-  "description": "An example Dusklight mod"
+  "author": "Sudospective",
+  "description": "A modding template/library designed to make templating easier"
 }
